@@ -5,6 +5,9 @@ nav {
   align-items: center;
   color: #FFFFFF;
   height: 120px;
+  position: fixed;
+  top: 0;
+  width:100%;
   background-color: #4056A1;
   padding-left: 1.5em;
   padding-right: 1.5em;
