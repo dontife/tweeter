@@ -1,0 +1,57 @@
+.wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.container {
+  display: flex;
+  background-color: #f4f1ec;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  border-bottom: 5px solid black;
+  /* padding:20px; */
+}
+::placeholder {   
+  font-weight: bold;
+  
+}
+
+.roger {
+  display: flex;
+  justify-content: space-between;
+  font-family: bungee;
+  margin-top: 10px;
+}
+
+button {
+  background-color: blue;
+  color: white
+  
+}
+
+.selector {
+  color : red;
+}
