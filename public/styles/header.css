@@ -15,16 +15,3 @@ header {
   margin-top: 120px;;
   margin-bottom: 20px;
 }
-
-textarea.old-tweets-text{
-  display: flex;
-  flex-direction: row;
-  overflow: auto;
-  border: none;
-  background-color: transparent;
-  resize: none;
-  outline: none;
-  border-bottom: 5px solid black;
-  border-left: 20px;
-  /* padding:20px; */
-}
