@@ -55,6 +55,12 @@
     <div class ="wrapper">
     <main class="container" id = "containerId">
       <section class="new-tweet">
+        <!-- Error message -->
+        <div class="error-messages">
+          <p id="error-exceed">The maximum characters cannot be greater than 140.</p>
+          <p id="error-empty">Your message is empty, Please try again</p>
+          </div>
+          <!-- End of Error message -->
         <form action = "/tweets/" method="post">
           <section>
           <label for="tweet-text">What are you humming about?</label>

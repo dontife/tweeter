@@ -59,14 +59,14 @@ $(document).ready(function() {
   $('form').submit(function(event) {
     event.preventDefault();
     let $str = $('#tweet-text').serialize();
-    console.log("MY Tweet:",$str);
+    console.log('MY Tweet:', $str);
     const tweetText = $("#tweet-text").val();
     // Prints an error message if the input is empty or the characters inputted is greater than 140
     if (tweetText < 1) {
-      return alert('The message is empty, Please try again');
+      return $('#error-empty').slideDown('slow');
     } else if($str.length > 140){
       resetInput();
-      return alert('The maximum characters cannot be greater than 140');
+      return $('#error-exceed').slideDown('slow');;
     }
     $.ajax('/tweets', {method: 'POST', data: $str})
     .then(function () {
@@ -79,6 +79,8 @@ $(document).ready(function() {
   const resetInput = function() {
     const tweetInput = $('#tweet-text');
     tweetInput.val('');
+    $("#error-empty").hide("slow");
+    $("#error-exceed").hide("slow");
     tweetInput.focus();
     $('#counter').text(140);
   } 
