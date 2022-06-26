@@ -52,7 +52,15 @@ const createTweetElement = function(tweet) {
   $('form').submit(function(event) {
     event.preventDefault();
     let $str = $('#tweet-text').serialize();
-    console.log("MY TWEET:",$str);
+    console.log("MY Tweet:",$str);
+    const tweetText = $("#tweet-text").val();
+    // Prints an error message if the input is empty or the characters inputted is greater than 140
+    if (tweetText < 1) {
+      return alert('The message is empty, Please try again');
+    } else if($str.length > 140){
+      resetInput();
+      return alert('The maximum characters cannot be greater than 140');
+    }
     $.ajax('/tweets', {method: 'POST', data: $str})
     .then(function () {
       resetInput();
