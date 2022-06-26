@@ -20,7 +20,6 @@ const renderTweets = function(tweets) {
 
 const createTweetElement = function(tweet) {
   let date = new Date(tweet.created_at);
-  date = date.toDateString();
   let $tweet =  $(`
   <article class = "timeline">
     <header class='timeline-tweet'>
@@ -35,7 +34,7 @@ const createTweetElement = function(tweet) {
     <div class="old-tweets-text">${tweet.content.text}</div>
     <hr class = 'line'>
     <footer class="footer-info">
-      <output name="date" id="date">${date}</output>
+      <output name="date" id="date">${timeago.format(date)}</output>
       <div id="icons">
         <span>
           <i class="fa-solid fa-flag"></i>
@@ -71,7 +70,7 @@ const createTweetElement = function(tweet) {
 
 
 
-
+  // using jQuery to make a request to /tweets
   const loadTweets = function () {
     $.get("/tweets").then(function (data) {
       console.log("Success! loadTweets was called.");
