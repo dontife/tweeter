@@ -6,38 +6,15 @@
 
 $(document).ready(function() {
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
 
 const renderTweets = function(tweets) {
+  $(".old-tweets").empty();
   // loops through tweets
   tweets.map(tweet => {
     // calls createTweetElement for each tweet
     let $createTweet = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
-    $(".old-tweets").append($createTweet);
+    $(".old-tweets").prepend($createTweet);
   })
 }
 
@@ -55,7 +32,8 @@ const createTweetElement = function(tweet) {
         <p class="username">${tweet.user.handle}</p>
       </div>
     </header> 
-    <textarea class="old-tweets-text">${tweet.content.text}</textarea>
+    <div class="old-tweets-text">${tweet.content.text}</div>
+    <hr class = 'line'>
     <footer class="footer-info">
       <output name="date" id="date">${date}</output>
       <div id="icons">
@@ -71,6 +49,36 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
-renderTweets(data);
 
-});
+  $('form').submit(function(event) {
+    event.preventDefault();
+    let $str = $('#tweet-text').serialize();
+    console.log("MY TWEET:",$str);
+    $.ajax('/tweets', {method: 'POST', data: $str})
+    .then(function () {
+      resetInput();
+      loadTweets();
+    });
+  });
+
+  
+  const resetInput = function() {
+    const tweetInput = $('#tweet-text');
+    tweetInput.val('');
+    tweetInput.focus();
+    $('#counter').text(140);
+  } 
+
+
+
+
+  const loadTweets = function () {
+    $.get("/tweets").then(function (data) {
+      console.log("Success! loadTweets was called.");
+      return renderTweets(data);
+    });
+  }
+  loadTweets();
+
+
+})
