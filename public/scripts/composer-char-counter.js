@@ -1,3 +1,5 @@
+
+// character counter for the tweet compose form
 $(document).ready(function() {
   $('#tweet-text').on("input", function() {
     const currentLength = $(this).val().length;
@@ -7,6 +9,9 @@ $(document).ready(function() {
     
     if (currentLength > 140) {
       $(counter).addClass('selector')
+    }
+    else {
+     $(counter).removeClass('selector'); 
     }   
   });
 }); 
