@@ -13,6 +13,7 @@ $(document).ready(function() {
   };
 
 
+  //dynamic rendering of data 
   const renderTweets = function(tweets) {
     $(".old-tweets").empty();
     // loops through tweets
@@ -24,7 +25,8 @@ $(document).ready(function() {
     })
   }
 
-  
+
+  //returns a tweet <article> element containing the entire HTML structure of the tweet.
   const createTweetElement = function(tweet) {
     let date = new Date(tweet.created_at);
     let $tweet =  $(`
@@ -56,6 +58,8 @@ $(document).ready(function() {
   }
 
 
+
+  //data submission using jQuery
   $('form').submit(function(event) {
     event.preventDefault();
     let $str = $('#tweet-text').serialize();
@@ -75,7 +79,9 @@ $(document).ready(function() {
     });
   });
 
-  
+
+
+  // clears the message inputted when creating a tweet
   const resetInput = function() {
     const tweetInput = $('#tweet-text');
     tweetInput.val('');
@@ -84,7 +90,6 @@ $(document).ready(function() {
     tweetInput.focus();
     $('#counter').text(140);
   } 
-
 
 
   // using jQuery to make a request to /tweets

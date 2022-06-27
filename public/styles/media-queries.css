@@ -1,0 +1,29 @@
+/* Laptops / Desktops: minimum width of 1024px */
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    margin-top: 10%;
+  }
+  .container {
+    width: 64%;
+    margin-right: 3%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+}
+
+/* Tablet: minimum width of 768px to maximum width of 1023px */
+@media (min-width: 768px) {
+  nav {
+    background-color: #4056A1;
+    color: #000517;
+  }
+  .fa-solid.fa-angles-down {
+  color: #F01D20;
+}
+.fa-solid.fa-angles-down:hover {
+  color: #0597F0;
+}
+}
