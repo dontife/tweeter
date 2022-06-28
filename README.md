@@ -2,11 +2,16 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
 
 ## Final Product 
+
+### URLs page(desktop view)
 !["Screenshot of URLs page(desktop view)"](https://github.com/dontife/tweeter/blob/master/docs/Tweets-timeline(desktop%20view%20minimum%20-1024).png?raw=true)
+
+### URLs page(laptop view)
 !["Screenshot of URLs page(laptop view)"](https://github.com/dontife/tweeter/blob/master/docs/Tweets-timeline(tablet%20view%20minimum%20-1023).png?raw=true)
+
+### URLs page(mobile view)
 !["Screenshot of URLs page(mobile view)"](https://github.com/dontife/tweeter/blob/master/docs/Tweets-timeline(mobile%20vew%20-767px).png?raw=true)
 
 
@@ -22,3 +27,5 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Chance
+- Body-parser
