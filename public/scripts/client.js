@@ -74,6 +74,8 @@ $(document).ready(function() {
     }
     $.ajax('/tweets', {method: 'POST', data: $str})
     .then(function () {
+      $("#tweet-text").val('');
+      $('#counter').text(140);
       resetInput();
       loadTweets();
     });
@@ -84,11 +86,9 @@ $(document).ready(function() {
   // clears the message inputted when creating a tweet
   const resetInput = function() {
     const tweetInput = $('#tweet-text');
-    tweetInput.val('');
     $("#error-empty").hide("slow");
     $("#error-exceed").hide("slow");
     tweetInput.focus();
-    $('#counter').text(140);
   } 
 
 
